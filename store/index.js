@@ -64,7 +64,8 @@ export const actions = {
       console.log(err)
     }
   },
-  async getPcustomdata({ state, commit, dispatch }) {    
+  async getPcustomdata({ state, commit, dispatch }) { 
+    if (state.customdata.length) return
     try {
       let customdata = await fetch(
         `${siteURL}/wp-json/wp/v2/posts`
