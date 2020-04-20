@@ -12,26 +12,24 @@
 </template>
 
 <script>
-    import axios from 'axios'           
-    export default {
-    
-       data() {
-            return {
-                list: '',            
-            };
-        }, methods: {
-            equipmentlist: function () {              
-                axios.get('http://dev-galaxy-test-site.pantheonsite.io/wp-json/wp/v2/posts/20').then(function (response) {
-                console.log(response);
-                console.log('shubhu');
-                    this.list = response.data.list;  
-                    
-                }.bind(this));
-            }
-        }, created: function () {
-            this.equipmentlist();
-        }
-    }
+import AppMasthead from "@/components/AppMasthead.vue";
+
+export default {
+  components: {
+    AppMasthead
+  },
+  data() {
+    return {
+
+    };
+  },
+   created() {
+    console.log(this.$store.dispatch("getPcustomdata"));
+  },
+  methods: {
+   
+  }
+};
 </script>
 
 <style lang="scss" scoped>
