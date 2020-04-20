@@ -67,7 +67,7 @@ export const actions = {
   async getPcustomdata() {    
     try {
       let customdata = await fetch(
-        `http://dev-galaxy-test-site.pantheonsite.io/wp-json/wp/v2/posts/20`
+        `${siteURL}/wp-json/wp/v2/posts`
       ).then(res => res.json())
       customdata = customdata
     } catch (err) {
