@@ -22,7 +22,10 @@
         }, methods: {
             equipmentlist: function () {              
                 axios.get('http://dev-galaxy-test-site.pantheonsite.io/wp-json/wp/v2/posts/20').then(function (response) {
-                    this.list = response.data.list;                   
+                console.log(response);
+                console.log('shubhu');
+                    this.list = response.data.list;  
+                    
                 }.bind(this));
             }
         }, created: function () {
