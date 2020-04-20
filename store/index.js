@@ -71,8 +71,11 @@ export const actions = {
         `${siteURL}/wp-json/wp/v2/posts`
       ).then(res => res.json())
       customdata = customdata
+      console.log(customdata)
+      console.log('jjjjjjjjjjjjjj')
     } catch (err) {
       console.log(err)
+      console.log('hhhhhhhhhhhhhhh')
     }
   }
 }
