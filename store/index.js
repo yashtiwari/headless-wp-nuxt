@@ -68,7 +68,7 @@ export const actions = {
     if (state.customdata.length) return
     try {
       let customdata = await fetch(
-        `${siteURL}/wp-json/wp/v2/posts`
+        `${siteURL}/wp-json/wp/v2/posts?page=1&per_page=20&_embed=1`
       ).then(res => res.json())
       customdata = customdata
       console.log(customdata)
