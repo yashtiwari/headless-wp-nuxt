@@ -2,7 +2,8 @@ const siteURL = "http://dev-galaxy-test-site.pantheonsite.io"
 
 export const state = () => ({
   posts: [],
-  tags: []
+  tags: [],
+  customdata:[],
 })
 
 export const mutations = {
@@ -59,6 +60,16 @@ export const actions = {
       }))
 
       commit("updateTags", tags)
+    } catch (err) {
+      console.log(err)
+    }
+  },
+  async getPcustomdata() {    
+    try {
+      let customdata = await fetch(
+        `http://dev-galaxy-test-site.pantheonsite.io/wp-json/wp/v2/posts/20`
+      ).then(res => res.json())
+      customdata = customdata
     } catch (err) {
       console.log(err)
     }
