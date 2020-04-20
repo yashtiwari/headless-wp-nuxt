@@ -1,5 +1,6 @@
 <template>
   <div class="about">
+  {{list}}
     <h1>About</h1>
     <p>We don't really know where this goes - and I'm not sure we really care. If these lines aren't straight, your water's going to run right out of your painting and get your floor wet. If you do too much it's going to lose its effectiveness.</p>
     <p>You create the dream - then you bring it into your world. We don't need any guidelines or formats. All we need to do is just let it flow right out of us. Poor old tree. Maybe there's a little something happening right here.</p>
@@ -11,7 +12,23 @@
 </template>
 
 <script>
-export default {};
+    import axios from 'axios'           
+    export default {
+    
+       data() {
+            return {
+                list: '',            
+            };
+        }, methods: {
+            equipmentlist: function () {              
+                axios.get('http://dev-galaxy-test-site.pantheonsite.io/wp-json/wp/v2/posts/20').then(function (response) {
+                    this.list = response.data.list;                   
+                }.bind(this));
+            }
+        }, created: function () {
+            this.equipmentlist();
+        }
+    }
 </script>
 
 <style lang="scss" scoped>
